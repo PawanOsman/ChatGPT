@@ -27,7 +27,7 @@ The following query parameters can be included in the request:
 ### Example Request
 
 ```
-GET https://api.pawan.krd/chat/gpt?text=Hello&lang=en
+GET https://api.pawan.krd/chat/gpt?text=Hello
 ```
 
 ### Example Response
