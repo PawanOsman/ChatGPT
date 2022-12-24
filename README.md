@@ -1,5 +1,8 @@
 
-# Welcome to ChatGPT API
+# *24-12-2022 Announcement*
+## We experienced a DDoS attack on our server today. In response, we have implemented Cloudflare protection. If you would like to continue using our API, please contact us to request that your server IP be whitelisted [[Discord](https://discord.pawan.krd)]
+
+## Welcome to ChatGPT API
 
 **ChatGPT** is a free API that allows users to access the ChatGPT machine learning model from OpenAI without the need for authentication.
 
