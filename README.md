@@ -1,6 +1,6 @@
 
-# *24-12-2022 Announcement*
-## We experienced a DDoS attack on our server today. In response, we have implemented Cloudflare protection. If you would like to continue using our API, please contact us to request that your server IP be whitelisted [[Discord](https://discord.pawan.krd)]
+# *29-12-2022 Announcement*
+## We removed IP whitelisting, now anyonw can use it without IP whitelist [[Discord](https://discord.pawan.krd)]
 
 ## Welcome to ChatGPT API
 
