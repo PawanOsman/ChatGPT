@@ -2,7 +2,7 @@
 # *02-JAN-2022 Announcement*
 ## After careful consideration, we have made the decision to shut down this public API due to instances of abuse. If you are interested in continuing to use the API, we recommend checking out our libraries and using your own ChatGPT account.
 ## Check out [[C# Version](https://github.com/PawanOsman/ChatGPT.Net)][[NodeJS Version](https://github.com/PawanOsman/chatgpt-io)][[Python Version](https://github.com/PawanOsman/ChatGPT.py)]
-# If you have any questions or need assistance, please join  [[Discord](https://discord.pawan.krd)]
+## If you have any questions or need assistance, please join  [[Discord](https://discord.pawan.krd)]
 
 ## Welcome to ChatGPT API
 
