@@ -1,4 +1,5 @@
 
+## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 # *02-FEB-2022 Update*
 ## We have decided to activate the API once more!
 
