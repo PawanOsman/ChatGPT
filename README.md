@@ -2,9 +2,9 @@
 
 # _24-MARCH-2023 Update_
 
-## The API is more advanced now! Supports text and chat completions and image generations (DALL-E), and has a new endpoint same as the original API.
+The API is more advanced now! Supports text and chat completions and image generations (DALL-E), and has a new endpoint same as the original API.
 
-## If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
+### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
 # Welcome to ChatGPT API _**FREE Reverse Proxy**_
 
