@@ -1,122 +1,140 @@
-
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
-# *02-FEB-2022 Update*
-## We have decided to activate the API once more!
 
-## If you have any questions or need assistance, please join  [[Discord](https://discord.pawan.krd)]
+# _24-MARCH-2023 Update_
 
-## Welcome to ChatGPT API
+## The API is more advanced now! Supports text and chat completions and image generations (DALL-E), and has a new endpoint same as the original API.
 
-**ChatGPT** is a free API that allows users to access the ChatGPT machine learning model from OpenAI without the need for authentication.
+## If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
-## How to use ChatGPT API
+# Welcome to ChatGPT API _**FREE Reverse Proxy**_
 
-To use the ChatGPT API, send an `HTTP GET` request to the following endpoint:
+**ChatGPT API Free Reverse Proxy** is a free reverse proxy to OpenAI API that allows users to access OpenAI API for free.
 
-```
-GET https://api.pawan.krd/chat/gpt
-```
+# Index
+- [How to use ChatGPT API Reverse Proxy](#how-to-use-chatgpt-api-reverse-proxy)
+  - [Self-Host Your Own API](#self-host-your-own-api)
+  - [Use Our Hosted API](#use-our-hosted-api)
+    - [Text Completion](#text-completion)
+    - [Chat Completion (ChatGPT)](#chat-completion-chatgpt)
+    - [Image Generation (DALL-E)](#image-generation-dall-e)
 
-### Query Parameters
+- [License](#license)
 
-The following query parameters can be included in the request:
+## How to use ChatGPT API Reverse Proxy
 
+You can use ChatGPT API Reverse Proxy by choosing one of the following methods:
 
-|Parameter|Description|Required|Default|
-|--|--|--|--|
-|`text`|Your message|Yes||
-|`lang`|The language of your text. Default is English. Supported languages can be found [here](https://cloud.google.com/translate/docs/languages).|No|`en`|
-|`id`|A unique identifier for your conversation.|No|`default`|
-|`cache`|A boolean value indicating whether to use cached responses, if available.|No|`true`|
+- [Self-Host Your Own API](#self-host-your-own-api)
+- [Use Our Hosted API](#use-our-hosted-api)
 
+‌
 
-### Example Request
+# Self-Host Your Own API
 
-```
-GET https://api.pawan.krd/chat/gpt?text=Hello
-```
+To self-host your own ChatGPT API, you can use the following steps:
 
-### Example Response
+1. [Create an OpenAI API Key](https://platform.openai.com/account/api-keys)
+2. Clone this repository and install the dependencies:
 
-A successful response will return a JSON object with the following fields:
-
-```json
-{
-  "state": true,
-  "reply": "Hello! How can I help you today?",
-  "markdown": "Hello! How can I help you today?",
-  "html": "<p>Hello! How can I help you today?</p>"
-}
+```bash
+git clone https://github.com/PawanOsman/ChatGPT.git
+cd ChatGPT
+npm install
 ```
 
-## Limitations
+3. Set your OpenAI key and other configurations in the `config.js` file.
+4. Start the server:
 
-It is important to note that ChatGPT API is provided on a best-effort basis and may not always be available. Additionally, the API may be rate-limited or have other usage restrictions in place. It is recommended to use the API responsibly and in accordance with any terms of service that may be in place.
-
-## Examples
-Here are example codes for using the API in Node.js, Python, and C#:
-
-### Node.js
-
-To use the ChatGPT API in Node.js, you can use the `axios` library to send an HTTP GET request to the API endpoint. Here is an example of how to do this:
-
-```javascript
-const axios = require('axios');
-
-async function getResponse(text, lang) {
-  try {
-    const response = await axios.get('https://api.pawan.krd/chat/gpt', {
-      params: {
-        text,
-        lang
-      }
-    });
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-getResponse('Hello', 'en').then(response => {
-  console.log(response);
-});
+```bash
+npm start
 ```
 
-### Python
+4. Use the API by sending an HTTP request to the API endpoints for example:
 
-To use the ChatGPT API in Python, you can use the `requests` library to send an HTTP GET request to the API endpoint. Here is an example of how to do this:
-
-```python
-import requests
-
-def get_response(text, lang):
-  params = {'text': text, 'lang': lang}
-  response = requests.get('https://api.pawan.krd/chat/gpt', params=params)
-  return response.json()
-
-response = get_response('Hello', 'en')
-print(response)
+```txt
+http://localhost:3000/v1/completions
+http://localhost:3000/v1/chat/completions
 ```
 
-### C#
+# Use Our Hosted API Reverse Proxy
 
-To use the ChatGPT API in C#, you can use the `HttpClient` class to send an HTTP GET request to the API endpoint. Here is an example of how to do this:
+To use our hosted ChatGPT API, you can use the following steps:
 
-```csharp
-using System.Net.Http;
-using Newtonsoft.Json;
+1. Join our [Discord](https://discord.pawan.krd) server.
+2. Get your API key from the `#Bot` channel by sending `/key` command.
+3. Use the API Key in your requests to the following endpoints.
 
-async Task<Response> GetResponse(string text, string lang) {
-  using (var client = new HttpClient()) {
-    var queryString = $"text={text}&lang={lang}";
-    var response = await client.GetAsync($"https://api.pawan.krd/chat/gpt?{queryString}");
-    var responseData = await response.Content.ReadAsStringAsync();
-    return JsonConvert.DeserializeObject<Response>(responseData);
-  }
-}
+## Text Completion:
 
-var response = await GetResponse("Hello", "en");
-Console.log(response);
+```txt
+https://api.pawan.krd/v1/completions
 ```
 
-Note that these are just basic examples, and you may need to add additional error handling and other functionality as needed for your use case.
+### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/completions)
+
+```bash
+curl --location 'https://api.pawan.krd/v1/completions' \
+--header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": "text-davinci-003",
+    "prompt": "Human: Hello\\nAI:",
+    "temperature": 0.7,
+    "max_tokens": 256,
+    "stop": [
+        "Human:",
+        "AI:"
+    ]
+}'
+```
+
+## Chat Completion (ChatGPT):
+
+```txt
+https://api.pawan.krd/v1/chat/completions
+```
+
+### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/chat)
+
+```bash
+curl --location 'https://api.pawan.krd/v1/chat/completions' \
+--header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": "gpt-3.5-turbo",
+    "max_tokens": 100,
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an helful assistant"
+        },
+        {
+            "role": "user",
+            "content": "Who are you?"
+        }
+    ]
+}'
+```
+
+## Image Generation (DALL-E):
+
+```txt
+https://api.pawan.krd/v1/images/generations
+```
+
+### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/chat)
+
+```bash
+curl --location 'https://api.pawan.krd/v1/images/generations' \
+--header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
+--header 'Content-Type: application/json' \
+--data '{
+    "prompt": "a photo of a happy corgi puppy sitting and facing forward, studio light, longshot",
+    "n": 1,
+    "size": "1024x1024"
+}'
+```
+
+# License
+
+MIT License

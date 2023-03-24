@@ -24,8 +24,8 @@ app.all("/", async function (req, res) {
         discord: "https://discord.pawan.krd"
     });
 });
-app.post("/api/completions", completions);
-app.post("/api/chat/completions", chatCompletions);
+app.post("/v1/completions", completions);
+app.post("/v1/chat/completions", chatCompletions);
 
 // Start server
 app.listen(SERVER_PORT, () => {
