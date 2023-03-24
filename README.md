@@ -10,7 +10,8 @@ The API is more advanced now! Supports text and chat completions and image gener
 
 **ChatGPT API Free Reverse Proxy** is a free reverse proxy to OpenAI API that allows users to access OpenAI API for free.
 
-# Index
+# Table of Contents
+- [Features](#features)
 - [How to use ChatGPT API Reverse Proxy](#how-to-use-chatgpt-api-reverse-proxy)
   - [Self-Host Your Own API](#self-host-your-own-api)
   - [Use Our Hosted API](#use-our-hosted-api)
@@ -19,6 +20,15 @@ The API is more advanced now! Supports text and chat completions and image gener
     - [Image Generation (DALL-E)](#image-generation-dall-e)
 
 - [License](#license)
+
+## Features 
+
+- **Multiple OpenAI Keys** - You can use multiple OpenAI keys. The API will randomly choose one of the keys to use.
+- **Moderation** - The API has a built-in moderation system that will automatically check the prompt before sending it to OpenAI API (To prevent OpenAI terminate the account for violating OpenAI's policy).
+- **Streaming Response** - The API supports streaming response, so you can get the response as soon as it's available.
+- **Same as Official** - The API has the same endpoints as the official API, so you can use the same code to access the API (even the official OpenAI libraries)
+- **Free** - The API is free to use through our [hosted API](#use-our-hosted-api) (You can also self-host the API if you want).
+
 
 ## How to use ChatGPT API Reverse Proxy
 
