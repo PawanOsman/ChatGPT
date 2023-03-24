@@ -122,7 +122,7 @@ curl --location 'https://api.pawan.krd/v1/chat/completions' \
 https://api.pawan.krd/v1/images/generations
 ```
 
-### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/chat)
+### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/images)
 
 ```bash
 curl --location 'https://api.pawan.krd/v1/images/generations' \
