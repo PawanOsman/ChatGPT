@@ -14,7 +14,7 @@ The API is more advanced now! Supports text and chat completions and image gener
 - [Features](#features)
 - [How to use ChatGPT API Reverse Proxy](#how-to-use-chatgpt-api-reverse-proxy)
   - [Self-Host Your Own API](#self-host-your-own-api)
-  - [Use Our Hosted API](#use-our-hosted-api)
+  - [Use Our Hosted API](#use-our-hosted-api-reverse-proxy)
     - [Text Completion](#text-completion)
     - [Chat Completion (ChatGPT)](#chat-completion-chatgpt)
     - [Image Generation (DALL-E)](#image-generation-dall-e)
@@ -29,13 +29,14 @@ The API is more advanced now! Supports text and chat completions and image gener
 - **Same as Official** - The API has the same endpoints as the official API, so you can use the same code to access the API (even the official OpenAI libraries)
 - **Free** - The API is free to use through our [hosted API](#use-our-hosted-api) (You can also self-host the API if you want).
 
+**Note:** Self-hosting it isn't free, you need to use your OpenAI Account credit.
 
 ## How to use ChatGPT API Reverse Proxy
 
 You can use ChatGPT API Reverse Proxy by choosing one of the following methods:
 
 - [Self-Host Your Own API](#self-host-your-own-api)
-- [Use Our Hosted API](#use-our-hosted-api)
+- [Use Our Hosted API](#use-our-hosted-api-reverse-proxy)
 
 ‌
 
