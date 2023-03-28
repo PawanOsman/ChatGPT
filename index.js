@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from 'express';
 import { completions, chatCompletions } from './routes.js';
 import { corsMiddleware, rateLimitMiddleware } from './middlewares.js';
-import { SERVER_PORT } from './config.js';
+import { DEBUG, SERVER_PORT } from './config.js';
 
 let app = express();
 
