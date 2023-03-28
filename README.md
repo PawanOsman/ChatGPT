@@ -1,8 +1,7 @@
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 
-# _24-MARCH-2023 Update_
-
-The API is more advanced now! Supports text and chat completions and image generations (DALL-E), and has a new endpoint same as the original API.
+# _28-MARCH-2023 Announcement_
+OpenAI patched the way we used to provide a free API, we are trying to find another way to back the API up again, join our discord server to stay updated
 
 ### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
