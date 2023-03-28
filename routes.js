@@ -133,9 +133,7 @@ async function completions(req, res) {
 
 async function chatCompletions(req, res) {
     let orgId = generateId();
-    let key = getOpenAIKey(true);
-
-    if (DEBUG) console.log(`[CHAT] [${req.user.data.id}] [${req.user.data.name}] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}] ${prompt}`);
+    let key = getOpenAIKey();
 
     if (MODERATION) {
         try {
@@ -151,6 +149,8 @@ async function chatCompletions(req, res) {
                     error: "messages is required! and must be an array of objects with content and author properties"
                 });
             }
+
+            if (DEBUG) console.log(`[CHAT] [${req.user.data.id}] [${req.user.data.name}] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}] ${prompt}`);
 
             let openAi = new OpenAIApi(new Configuration({ apiKey: key }));
             let response = await openAi.createModeration({
@@ -170,6 +170,9 @@ async function chatCompletions(req, res) {
         catch (e) {
 
         }
+    }
+    else {
+        if (DEBUG) console.log(`[CHAT] [${req.user.data.id}] [${req.user.data.name}] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}]`);
     }
 
     if (req.body.stream) {
