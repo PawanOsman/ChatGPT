@@ -19,7 +19,7 @@ async function completions(req, res) {
 
     if (MODERATION) {
         try {
-            let openAi = new OpenAIApi(new Configuration({ apiKey: key.apikey }));
+            let openAi = new OpenAIApi(new Configuration({ apiKey: key }));
             let response = await openAi.createModeration({
                 input: req.body.prompt,
             });
@@ -48,7 +48,7 @@ async function completions(req, res) {
                     headers: {
                         Accept: "text/event-stream",
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${key.apikey}`,
+                        Authorization: `Bearer ${key}`,
                     },
                 },
             );
@@ -106,7 +106,7 @@ async function completions(req, res) {
                     headers: {
                         Accept: "application/json",
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${key.apikey}`,
+                        Authorization: `Bearer ${key}`,
                     },
                 },
             );
@@ -152,7 +152,7 @@ async function chatCompletions(req, res) {
                 });
             }
 
-            let openAi = new OpenAIApi(new Configuration({ apiKey: key.apikey }));
+            let openAi = new OpenAIApi(new Configuration({ apiKey: key }));
             let response = await openAi.createModeration({
                 input: prompt,
             });
@@ -181,7 +181,7 @@ async function chatCompletions(req, res) {
                     headers: {
                         Accept: "text/event-stream",
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${key.apikey}`,
+                        Authorization: `Bearer ${key}`,
                     },
                 },
             );
@@ -242,7 +242,7 @@ async function chatCompletions(req, res) {
                     headers: {
                         Accept: "application/json",
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${key.apikey}`,
+                        Authorization: `Bearer ${key}`,
                     },
                 },
             );
