@@ -1,7 +1,10 @@
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 
-# _28-MARCH-2023 Announcement_
-OpenAI patched the way we used to provide a free API, we are trying to find another way to back the API up again, join our discord server to stay updated
+# _29-MARCH-2023 Announcement_
+We found a new way to use `text-davinci-003` now text completion hosted API is working
+
+> ## _28-MARCH-2023 Announcement_
+> OpenAI patched the way we used to provide a free API, we are trying to find another way to back the API up again, join our discord server to stay updated
 
 ### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
