@@ -10,7 +10,7 @@ function corsMiddleware(req, res, next) {
 };
 
 async function rateLimitMiddleware(req, res, next) {
-    let ip = req.headers["CF-Connecting-IP"] ?? req.headers["cf-connecting-ip"] ?? req.headers["X-Forwarded-For"] ?? req.headers["x-forwarded-for"] ?? req.src.ip;
+    let ip = req.headers["CF-Connecting-IP"] ?? req.headers["cf-connecting-ip"] ?? req.headers["X-Forwarded-For"] ?? req.headers["x-forwarded-for"] ?? req.ip;
     if (WHITELISTED_IPS.includes(ip)) return next();
     if (!rateLimit.has(ip)) {
         rateLimit.set(ip, {
