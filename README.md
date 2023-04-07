@@ -119,7 +119,7 @@ curl --location 'https://api.pawan.krd/v1/chat/completions' \
     "messages": [
         {
             "role": "system",
-            "content": "You are an helful assistant"
+            "content": "You are an helpful assistant."
         },
         {
             "role": "user",
@@ -142,7 +142,7 @@ curl --location 'https://api.pawan.krd/v1/images/generations' \
 --header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
 --header 'Content-Type: application/json' \
 --data '{
-    "prompt": "a photo of a happy corgi puppy sitting and facing forward, studio light, longshot",
+    "prompt": "a photo of a happy corgi puppy sitting and facing forward, studio light, longshot.",
     "n": 1,
     "size": "1024x1024"
 }'
