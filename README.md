@@ -1,10 +1,8 @@
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 
-# _29-MARCH-2023 Announcement_
-We found a new way to use `text-davinci-003` now text completion hosted API is working
+# _11-APRIL-2023 Update_
 
-> ## _28-MARCH-2023 Announcement_
-> OpenAI patched the way we used to provide a free API, we are trying to find another way to back the API up again, join our discord server to stay updated
+We found a new way to use OpenAI API for free and now all API endpoints are working (text and chat completion, image generation). You can use the API by following the steps below:
 
 ### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
@@ -13,8 +11,10 @@ We found a new way to use `text-davinci-003` now text completion hosted API is w
 **ChatGPT API Free Reverse Proxy** is a free reverse proxy to OpenAI API that allows users to access OpenAI API for free.
 
 # Table of Contents
+
 - [Features](#features)
 - [How to use ChatGPT API Reverse Proxy](#how-to-use-chatgpt-api-reverse-proxy)
+
   - [Self-Host Your Own API](#self-host-your-own-api)
   - [Use Our Hosted API](#use-our-hosted-api-reverse-proxy)
     - [Text Completion](#text-completion)
@@ -23,7 +23,7 @@ We found a new way to use `text-davinci-003` now text completion hosted API is w
 
 - [License](#license)
 
-## Features 
+## Features
 
 - **Multiple OpenAI Keys** - You can use multiple OpenAI keys. The API will randomly choose one of the keys to use.
 - **Moderation** - The API has a built-in moderation system that will automatically check the prompt before sending it to OpenAI API (To prevent OpenAI terminate the account for violating OpenAI's policy).
