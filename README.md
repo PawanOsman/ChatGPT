@@ -20,6 +20,9 @@ We found a new way to use OpenAI API for free and now all API endpoints are work
     - [Text Completion](#text-completion)
     - [Chat Completion (ChatGPT)](#chat-completion-chatgpt)
     - [Image Generation (DALL-E)](#image-generation-dall-e)
+  - [Examples using OpenAI libraries](#examples-using-openai-libraries)
+    - [Python](#python)
+    - [Node.js](#nodejs)
 
 - [License](#license)
 
@@ -148,6 +151,84 @@ curl --location 'https://api.pawan.krd/v1/images/generations' \
 }'
 ```
 
+## Examples using OpenAI libraries
+
+You can use the same code to access the API using the official OpenAI libraries, the only difference is that you need to change the API key and the API base URL.
+
+Examples are for text completion, but you can use the same code for chat completion and image generation.
+
+### Python
+
+You need to add the following lines before your code to use the API:
+
+```python
+import openai
+
+openai.api_key = 'pk-**********************************************'
+openai.api_base = 'https://api.pawan.krd/v1'
+```
+
+Example code:
+
+```python
+import openai
+
+openai.api_key = 'pk-**********************************************'
+openai.api_base = 'https://api.pawan.krd/v1'
+
+response = openai.Completion.create(
+  model="text-davinci-003",
+  prompt="Human: Hello\nAI:",
+  temperature=0.7,
+  max_tokens=256,
+  top_p=1,
+  frequency_penalty=0,
+  presence_penalty=0,
+  stop=["Human: ", "AI: "]
+)
+
+print(response.choices[0].text)
+```
+
+### Node.js
+
+You need to add the following lines before your code to use the API:
+
+```js
+import { Configuration, OpenAIApi } from "openai";
+
+const configuration = new Configuration({
+	apiKey: "pk-**********************************************",
+	basePath: "https://api.pawan.krd/v1",
+});
+```
+
+Example code:
+
+```js
+import { Configuration, OpenAIApi } from "openai";
+
+const configuration = new Configuration({
+	apiKey: "pk-**********************************************",
+	basePath: "https://api.pawan.krd/v1",
+});
+
+const openai = new OpenAIApi(configuration);
+
+const response = await openai.createCompletion({
+	model: "text-davinci-003",
+	prompt: "Human: Hello\nAI:",
+	temperature: 0.7,
+	max_tokens: 256,
+	top_p: 1,
+	frequency_penalty: 0,
+	presence_penalty: 0,
+	stop: ["Human: ", "AI: "],
+});
+
+console.log(response.data.choices[0].text);
+```
+
 # License
 
-MIT License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
