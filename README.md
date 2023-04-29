@@ -226,7 +226,7 @@ const response = await openai.createCompletion({
 	stop: ["Human: ", "AI: "],
 });
 
-console.log(response.data.choices[0].text);
+console.log(response.data.choices[0].message.content);
 ```
 
 # License
