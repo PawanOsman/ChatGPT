@@ -1,8 +1,8 @@
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 
-# _11-APRIL-2023 Update_
+# _16-MAY-2023 Update_
 
-We found a new way to use OpenAI API for free and now all API endpoints are working (text and chat completion, image generation). You can use the API by following the steps below:
+We found a new way to use the **8k** token version `gpt-3.5-turbo`, now `gpt-3.5-turbo` is available from our reverse proxy at **8k** token context size. 
 
 ### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
