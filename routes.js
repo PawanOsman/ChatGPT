@@ -137,10 +137,10 @@ async function chatCompletions(req, res) {
 
     if (MODERATION) {
         try {
-            let prompt = "";
+            let prompt = [];
             try {
                 req.body.messages.forEach(element => {
-                    prompt += element.content;
+                    prompt.push(element.content);
                 });
             }
             catch (e) {
@@ -168,7 +168,11 @@ async function chatCompletions(req, res) {
             }
         }
         catch (e) {
-
+            if (DEBUG) console.log(e);
+            return res.status(500).send({
+                status: false,
+                error: "something went wrong!"
+            });
         }
     }
     else {
