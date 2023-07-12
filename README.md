@@ -1,9 +1,4 @@
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
-
-# _16-MAY-2023 Update_
-
-We found a new way to use the **8k** token version `gpt-3.5-turbo`, now `gpt-3.5-turbo` is available from our reverse proxy at **8k** token context size. 
-
 ### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
 
 # Welcome to ChatGPT API _**FREE Reverse Proxy**_
