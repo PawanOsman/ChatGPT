@@ -1,25 +1,36 @@
-# Use the official Node.js 14 Alpine image as the base image
-FROM node:14-alpine
+# Set base image
+FROM node:18-alpine
 
-# Set the working directory inside the container
+# Set environment variables
+ENV NODE_ENV=production
+ENV SERVER_PORT=3000
+ENV DEBUG=false
+ENV MODERATION=true
+ENV PRIOD=15000
+ENV RATE_LIMIT=50
+ENV WHITELISTED_IPS=[]
+
+# Set OpenAI API keys
+ENV OPENAI_KEYS="[ \
+    \"sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\", \
+    \"sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\", \
+    \"sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\", \
+    \"sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\" \
+]"
+
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy package files
+COPY ["package.json", "package-lock.json*", "./"]
 
-# Install project dependencies
-RUN npm install
+# Install dependencies
+RUN npm install --production
 
-# Copy the rest of the project files to the working directory
+# Copy application code
 COPY . .
 
-# Set environment variables from config.js
-COPY config.js .
-
-# Update OpenAI API key in the config.js file
-RUN sed -i 's/your_openai_key/$OPENAI_API_KEY/' config.js
-
-# Expose a port (if your server is listening on a specific port)
+# Expose ports
 EXPOSE 3000
 
 # Start the server
