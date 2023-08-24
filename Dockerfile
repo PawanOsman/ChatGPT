@@ -22,10 +22,11 @@ ENV OPENAI_KEYS="[ \
 WORKDIR /app
 
 # Copy package files
-COPY ["package.json", "package-lock.json*", "./"]
+COPY package.json .
+COPY package-lock.json .
 
 # Install dependencies
-RUN npm install --production
+RUN npm ci --only=production
 
 # Copy application code
 COPY . .
