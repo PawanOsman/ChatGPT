@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Set environment variables from config.json
-COPY config.json ./
+COPY config.js ./
 RUN node -e "const config = require('./config.json'); process.env.OPENAI_API_KEY = config.openai.apiKey;"
 # Add any other environment variable assignments if needed
 
