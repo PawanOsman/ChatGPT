@@ -1,16 +1,25 @@
-# syntax=docker/dockerfile:1
+# Use the official Node.js 14 Alpine image as the base image
+FROM node:14-alpine
 
-FROM node:18-alpine
-ENV NODE_ENV=production
-
+# Set the working directory inside the container
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "./"]
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-RUN npm install --production
+# Install project dependencies
+RUN npm install
 
+# Copy the rest of the project files to the working directory
 COPY . .
 
-EXPOSE 3000 8080
+# Set environment variables from config.json
+COPY config.json ./
+RUN node -e "const config = require('./config.json'); process.env.OPENAI_API_KEY = config.openai.apiKey;"
+# Add any other environment variable assignments if needed
 
+# Expose a port (if your server is listening on a specific port)
+EXPOSE 3000
+
+# Start the server
 CMD ["npm", "start"]
