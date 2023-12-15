@@ -190,38 +190,33 @@ print(response.choices[0].text)
 You need to add the following lines before your code to use the API:
 
 ```js
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
-	apiKey: "pk-**********************************************",
-	basePath: "https://api.pawan.krd/v1",
-});
+const configuration = {
+  apiKey: "pk-**********************************************",
+  baseURL: "https://api.pawan.krd/v1"
+}
 ```
 
 Example code:
 
 ```js
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
-	apiKey: "pk-**********************************************",
-	basePath: "https://api.pawan.krd/v1",
-});
+const configuration = {
+  apiKey: "pk-**********************************************",
+  baseURL: "https://api.pawan.krd/v1"
+}
 
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAI(configuration);
 
-const response = await openai.createCompletion({
-	model: "text-davinci-003",
-	prompt: "Human: Hello\nAI:",
-	temperature: 0.7,
+const response = await openai.chat.completions.create({
+	model: "gpt-3.5-turbo",
+	messages: [{ role: "user", content: "Hello" }],
 	max_tokens: 256,
-	top_p: 1,
-	frequency_penalty: 0,
-	presence_penalty: 0,
-	stop: ["Human: ", "AI: "],
 });
 
-console.log(response.data.choices[0].text);
+console.log(response.choices[0].message.content);
 ```
 
 # License
