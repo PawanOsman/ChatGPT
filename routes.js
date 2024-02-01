@@ -15,7 +15,7 @@ async function completions(req, res) {
         });
     }
 
-    if (DEBUG) console.log(`[Text] [${req.user.data.id}] [${req.user.data.name}] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}] ${req.body.prompt}`);
+    if (DEBUG) console.log(`[Text] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}] ${req.body.prompt}`);
 
     if (MODERATION) {
         try {
