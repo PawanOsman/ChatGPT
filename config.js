@@ -21,3 +21,7 @@ export let OPENAI_KEYS = [
     "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 ];
+//this app api keys
+export const API_KEYS = [
+        "xxxxx"
+];
