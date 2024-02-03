@@ -1,4 +1,4 @@
-import { RATE_LIMIT, PRIOD, WHITELISTED_IPS } from "./config.js";
+import { RATE_LIMIT, PRIOD, WHITELISTED_IPS, API_KEYS} from "./config.js";
 
 const rateLimit = new Map();
 
@@ -11,6 +11,19 @@ function corsMiddleware(req, res, next) {
 
 async function rateLimitMiddleware(req, res, next) {
     let ip = req.headers["CF-Connecting-IP"] ?? req.headers["cf-connecting-ip"] ?? req.headers["X-Forwarded-For"] ?? req.headers["x-forwarded-for"] ?? req.ip;
+    if(!req.headers["authorization"]){
+        return res.status(499).send({
+            status: false,
+            error: "no authorization"
+        });
+    }
+    let authorization=req.headers["authorization"].replace("Bearer",'').trim();
+    if (!authorization || !API_KEYS.includes(authorization)){
+        return res.status(499).send({
+            status: false,
+            error: "Authorization failed"
+        });
+    }
     if (WHITELISTED_IPS.includes(ip)) return next();
     if (!rateLimit.has(ip)) {
         rateLimit.set(ip, {
