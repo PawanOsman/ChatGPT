@@ -1,229 +1,145 @@
-## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
-### If you have any questions or need assistance, please join [[Discord](https://discord.pawan.krd)]
+# ChatGPT API Free Reverse Proxy
 
-# Welcome to ChatGPT API _**FREE Reverse Proxy**_
+Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resource allowing seamless access to OpenAI's API. This project mirrors the official OpenAI API endpoints, enabling users to leverage OpenAI functionalities without direct cost. Dive into our documentation to discover how to set up your reverse proxy or connect with our hosted service for an even smoother experience.
 
-**ChatGPT API Free Reverse Proxy** is a free reverse proxy to OpenAI API that allows users to access OpenAI API for free.
+## Quick Links
 
-# Table of Contents
+- [Join our Discord Community](https://discord.pawan.krd) for support and questions.
+
+## Table of Contents
 
 - [Features](#features)
-- [How to use ChatGPT API Reverse Proxy](#how-to-use-chatgpt-api-reverse-proxy)
-
-  - [Self-Host Your Own API](#self-host-your-own-api)
-  - [Use Our Hosted API](#use-our-hosted-api-reverse-proxy)
-    - [Text Completion](#text-completion)
-    - [Chat Completion (ChatGPT)](#chat-completion-chatgpt)
-    - [Image Generation (DALL-E)](#image-generation-dall-e)
-  - [Examples using OpenAI libraries](#examples-using-openai-libraries)
-    - [Python](#python)
-    - [Node.js](#nodejs)
-
+- Option 1: [Installing/Self-Hosting Guide](#self-hosting-guide) (Without using any API key)
+  - [Your PC/Server](#your-pcserver)
+  - [Termux on Android Phones](#termux-on-android-phones)
+- Option 2: [Accessing Our Hosted API](#accessing-our-hosted-api) (Free)
+- [Usage Examples](#usage-examples)
 - [License](#license)
 
 ## Features
 
-- **Multiple OpenAI Keys** - You can use multiple OpenAI keys. The API will randomly choose one of the keys to use.
-- **Moderation** - The API has a built-in moderation system that will automatically check the prompt before sending it to OpenAI API (To prevent OpenAI terminate the account for violating OpenAI's policy).
-- **Streaming Response** - The API supports streaming response, so you can get the response as soon as it's available.
-- **Same as Official** - The API has the same endpoints as the official API, so you can use the same code to access the API (even the official OpenAI libraries)
-- **Free** - The API is free to use through our [hosted API](#use-our-hosted-api) (You can also self-host the API if you want).
+- **Streaming Response**: The API supports streaming response, so you can get the response as soon as it's available.
+- **API Endpoint Compatibility**: Full alignment with official OpenAI API endpoints, ensuring hassle-free integration with existing OpenAI libraries.
+- **Complimentary Access**: No charges for API usage, making advanced AI accessible to everyone even **without an API key**.
 
-**Note:** Self-hosting it isn't free, you need to use your OpenAI Account credit.
+## Installing/Self-Hosting Guide
 
-## How to use ChatGPT API Reverse Proxy
+### Your PC/Server
 
-You can use ChatGPT API Reverse Proxy by choosing one of the following methods:
+To install and run the ChatGPT API Reverse Proxy on your PC/Server by following these steps:
 
-- [Self-Host Your Own API](#self-host-your-own-api)
-- [Use Our Hosted API](#use-our-hosted-api-reverse-proxy)
+Note: This option is not available to all countries yet. if you are from a country that is not supported, you can use a **U.S. VPN** or use **our hosted API**.
 
-‌
+1. Ensure NodeJs (v19+) is installed: [Download NodeJs](https://nodejs.org/en/download)
+2. Clone this repository:
+   ```bash
+   git clone https://github.com/PawanOsman/ChatGPT.git
+   ```
+3. Open `start.bat` (Windows) or `start.sh` (Linux with `bash start.sh` command) to install dependencies and launch the server.
+4. Done, you can connect to your local server's API at:
+   ```
+   http://localhost:3040/v1/chat/completions
+   ```
+   Note that the base url will be `http://localhost:3040/v1`
 
-# Self-Host Your Own API
+To include installation instructions for Termux on Android devices, you can add the following section right after the instructions for Linux in the **Installing/Self-Hosting Guide**:
 
-To self-host your own ChatGPT API, you can use the following steps:
+### Termux on Android Phones
 
-1. [Create an OpenAI API Key](https://platform.openai.com/account/api-keys)
-2. Clone this repository and install the dependencies:
+To install and run the ChatGPT API Reverse Proxy on Android using Termux, follow these steps:
 
-```bash
-git clone https://github.com/PawanOsman/ChatGPT.git
-cd ChatGPT
-npm install
-```
+1. Install [Termux](https://play.google.com/store/apps/details?id=com.termux) from the Play Store.
+2. Update Termux packages:
+   ```bash
+   apt update
+   ```
+3. Upgrade Termux packages:
+   ```bash
+   apt upgrade
+   ```
+4. Install git, Node.js, and npm:
+   ```bash
+   apt install -y git nodejs
+   ```
+5. Clone the repository:
+   ```bash
+   git clone https://github.com/PawanOsman/ChatGPT.git
+   ```
+6. Navigate to the cloned directory:
+   ```bash
+   cd ChatGPT
+   ```
+7. Start the server with:
 
-3. Set your OpenAI key and other configurations in the `config.js` file.
-4. Start the server:
+   ```bash
+   bash start.sh
+   ```
 
-```bash
-npm start
-```
+8. Your local server will now be running and accessible at:
 
-4. Use the API by sending an HTTP request to the API endpoints for example:
+   ```
+   http://localhost:3040/v1/chat/completions
+   ```
 
-```txt
-http://localhost:3000/v1/completions
-http://localhost:3000/v1/chat/completions
-```
+   Note that the base url will be `http://localhost:3040/v1`
 
-# Use Our Hosted API Reverse Proxy
+   You can now use this address to connect to your self-hosted ChatGPT API Reverse Proxy from Android applications/websites that support reverse proxy configurations, on the same device.
 
-To use our hosted ChatGPT API, you can use the following steps:
+## Accessing Our Hosted API
 
-1. Join our [Discord](https://discord.pawan.krd) server.
-2. Get your API key from the `#Bot` channel by sending `/key` command.
-3. Use the API Key in your requests to the following endpoints.
+Utilize our pre-hosted ChatGPT-like API for free by:
 
-## Text Completion:
+1. Joining our [Discord server](https://discord.pawan.krd).
+2. Obtaining an API key from the `#Bot` channel with the `/key` command.
+3. Incorporating the API key into your requests to:
+   ```
+   https://api.pawan.krd/v1/chat/completions
+   ```
 
-```txt
-https://api.pawan.krd/v1/completions
-```
+## Usage Examples
 
-### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/completions)
+Leverage the same integration code as OpenAI's official libraries by simply adjusting the API key and base URL in your requests. For self-hosted setups, ensure to switch the base URL to your local server's address as mentioned above.
 
-```bash
-curl --location 'https://api.pawan.krd/v1/completions' \
---header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
---header 'Content-Type: application/json' \
---data '{
-    "model": "text-davinci-003",
-    "prompt": "Human: Hello\\nAI:",
-    "temperature": 0.7,
-    "max_tokens": 256,
-    "stop": [
-        "Human:",
-        "AI:"
-    ]
-}'
-```
+### Example Usage with OpenAI Libraries
 
-## Chat Completion (ChatGPT):
-
-```txt
-https://api.pawan.krd/v1/chat/completions
-```
-
-### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/chat)
-
-```bash
-curl --location 'https://api.pawan.krd/v1/chat/completions' \
---header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
---header 'Content-Type: application/json' \
---data '{
-    "model": "gpt-3.5-turbo",
-    "max_tokens": 100,
-    "messages": [
-        {
-            "role": "system",
-            "content": "You are an helpful assistant."
-        },
-        {
-            "role": "user",
-            "content": "Who are you?"
-        }
-    ]
-}'
-```
-
-## Image Generation (DALL-E):
-
-```txt
-https://api.pawan.krd/v1/images/generations
-```
-
-### Example: [OpenAI Docs](https://platform.openai.com/docs/api-reference/images)
-
-```bash
-curl --location 'https://api.pawan.krd/v1/images/generations' \
---header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
---header 'Content-Type: application/json' \
---data '{
-    "prompt": "a photo of a happy corgi puppy sitting and facing forward, studio light, longshot.",
-    "n": 1,
-    "size": "1024x1024"
-}'
-```
-
-## Examples using OpenAI libraries
-
-You can use the same code to access the API using the official OpenAI libraries, the only difference is that you need to change the API key and the API base URL.
-
-Examples are for text completion, but you can use the same code for chat completion and image generation.
-
-### Python
-
-You need to add the following lines before your code to use the API:
+#### Python Example
 
 ```python
 import openai
 
-openai.api_key = 'pk-**********************************************'
-openai.api_base = 'https://api.pawan.krd/v1'
-```
+openai.api_key = 'pk-**********************************************' # For self-hosted version you can leave it empty
+openai.base_url = "https://api.pawan.krd/v1"  # For self-hosted version, use "http://localhost:3040/v1"
 
-Example code:
-
-```python
-import openai
-
-openai.api_key = 'pk-**********************************************'
-openai.api_base = 'https://api.pawan.krd/v1'
-
-response = openai.Completion.create(
-  model="text-davinci-003",
-  prompt="Human: Hello\nAI:",
-  temperature=0.7,
-  max_tokens=256,
-  top_p=1,
-  frequency_penalty=0,
-  presence_penalty=0,
-  stop=["Human: ", "AI: "]
+completion = openai.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "user", "content": "How do I list all files in a directory using Python?"},
+    ],
 )
 
-print(response.choices[0].text)
+print(completion.choices[0].message.content)
 ```
 
-### Node.js
-
-You need to add the following lines before your code to use the API:
+#### Node.js Example
 
 ```js
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-	apiKey: "pk-**********************************************",
-	basePath: "https://api.pawan.krd/v1",
-});
-```
-
-Example code:
-
-```js
-import { Configuration, OpenAIApi } from "openai";
-
-const configuration = new Configuration({
-	apiKey: "pk-**********************************************",
-	basePath: "https://api.pawan.krd/v1",
+	apiKey: "pk-**********************************************", // For self-hosted version you can leave it empty
+	basePath: "https://api.pawan.krd/v1", // For self-hosted version, use "http://localhost:3040/v1"
 });
 
 const openai = new OpenAIApi(configuration);
 
-const response = await openai.createCompletion({
-	model: "text-davinci-003",
-	prompt: "Human: Hello\nAI:",
-	temperature: 0.7,
-	max_tokens: 256,
-	top_p: 1,
-	frequency_penalty: 0,
-	presence_penalty: 0,
-	stop: ["Human: ", "AI: "],
+const chatCompletion = await openai.chat.completions.create({
+	messages: [{ role: "user", content: "Initiate a test message" }],
+	model: "gpt-3.5-turbo",
 });
 
-console.log(response.data.choices[0].text);
+console.log(chatCompletion.choices[0].message.content);
 ```
 
-# License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is under the AGPL-3.0 License. Refer to the [LICENSE](LICENSE) file for detailed information.
