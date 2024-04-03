@@ -123,18 +123,16 @@ print(completion.choices[0].message.content)
 #### Node.js Example
 
 ```js
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from 'openai';
 
-const configuration = new Configuration({
+const openai = new OpenAI({
 	apiKey: "pk-**********************************************", // For self-hosted version you can put anything
-	basePath: "https://api.pawan.krd/v1", // For self-hosted version, use "http://localhost:3040/v1"
+	baseURL: "https://api.pawan.krd/v1", // For self-hosted version, use "http://localhost:3040/v1"
 });
 
-const openai = new OpenAIApi(configuration);
-
 const chatCompletion = await openai.chat.completions.create({
-	messages: [{ role: "user", content: "Initiate a test message" }],
-	model: "gpt-3.5-turbo",
+  messages: [{ role: 'user', content: 'Say this is a test' }],
+  model: 'gpt-3.5-turbo',
 });
 
 console.log(chatCompletion.choices[0].message.content);
