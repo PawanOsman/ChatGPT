@@ -107,8 +107,8 @@ Leverage the same integration code as OpenAI's official libraries by simply adju
 ```python
 import openai
 
-openai.api_key = 'pk-**********************************************' # For self-hosted version you can leave it empty
-openai.base_url = "https://api.pawan.krd/v1"  # For self-hosted version, use "http://localhost:3040/v1"
+openai.api_key = 'pk-**********************************************' # For self-hosted version you can put anything
+openai.base_url = "https://api.pawan.krd/v1/"  # For self-hosted version, use "http://localhost:3040/v1/"
 
 completion = openai.chat.completions.create(
     model="gpt-3.5-turbo",
@@ -126,7 +126,7 @@ print(completion.choices[0].message.content)
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-	apiKey: "pk-**********************************************", // For self-hosted version you can leave it empty
+	apiKey: "pk-**********************************************", // For self-hosted version you can put anything
 	basePath: "https://api.pawan.krd/v1", // For self-hosted version, use "http://localhost:3040/v1"
 });
 
