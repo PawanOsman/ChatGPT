@@ -9,8 +9,9 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
 ## Table of Contents
 
 - [Features](#features)
-- Option 1: [Installing/Self-Hosting Guide](#self-hosting-guide) (Without using any API key)
-  - [Your PC/Server](#your-pcserver)
+- Option 1: [Installing/Self-Hosting Guide](#installingself-hosting-guide) (Without using any API key)
+  - [Using Docker](#using-docker)
+  - [Your PC/Server](#your-pcserver) (manually)
   - [Termux on Android Phones](#termux-on-android-phones)
 - Option 2: [Accessing Our Hosted API](#accessing-our-hosted-api) (Free)
 - [Usage Examples](#usage-examples)
@@ -23,6 +24,18 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
 - **Complimentary Access**: No charges for API usage, making advanced AI accessible to everyone even **without an API key**.
 
 ## Installing/Self-Hosting Guide
+
+### Using Docker
+1. Ensure Docker is installed by referring to the [Docker Installation Docs](https://docs.docker.com/engine/install/).
+2. Run the following command:
+   ```bash
+   docker run -dp 3040:3040 yourusername/chatgpt:latest
+   ```
+3. Done! You can now connect to your local server's API at:
+   ```
+   http://localhost:3040/v1/chat/completions
+   ```
+   Note that the base URL is `http://localhost:3040/v1`.
 
 ### Your PC/Server
 
