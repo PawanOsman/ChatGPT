@@ -29,7 +29,7 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
 1. Ensure Docker is installed by referring to the [Docker Installation Docs](https://docs.docker.com/engine/install/).
 2. Run the following command:
    ```bash
-   docker run -dp 3040:3040 yourusername/chatgpt:latest
+   docker run -dp 3040:3040 pawanosman/chatgpt:latest
    ```
 3. Done! You can now connect to your local server's API at:
    ```
