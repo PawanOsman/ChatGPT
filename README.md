@@ -10,9 +10,9 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
 
 - [Features](#features)
 - Option 1: [Installing/Self-Hosting Guide](#installingself-hosting-guide) (Without using any API key)
-  - [Using Docker](#using-docker)
-  - [Your PC/Server](#your-pcserver) (manually)
-  - [Termux on Android Phones](#termux-on-android-phones)
+  - Method 1: [Using Docker](#using-docker)
+  - Method 2: [Your PC/Server](#your-pcserver) (manually)
+  - Method 3: [Termux on Android Phones](#termux-on-android-phones)
 - Option 2: [Accessing Our Hosted API](#accessing-our-hosted-api) (Free)
 - [Usage Examples](#usage-examples)
 - [License](#license)
