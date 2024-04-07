@@ -5,6 +5,7 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
 ## Quick Links
 
 - [Join our Discord Community](https://discord.pawan.krd) for support and questions.
+	- ⚡Note: Your Discord account must be at least 7 days old to be able join our Discord community.
 
 ## Table of Contents
 
