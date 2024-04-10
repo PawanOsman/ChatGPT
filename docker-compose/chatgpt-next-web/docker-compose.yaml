@@ -1,0 +1,21 @@
+version: '3.8' # Specify Docker Compose file version
+
+services:
+  # Define the service for the web interface of ChatGPT
+  chatgpt-next-web:
+    image: yidadaa/chatgpt-next-web # Use the specified Docker image for the web interface
+    ports:
+      - "3000:3000" # Map port 3000 on the host to port 3000 in the container
+    environment: # Set environment variables for the container
+      OPENAI_API_KEY: "anything" # Placeholder for the actual OpenAI API key
+      BASE_URL: "http://chatgpt:3040" # URL for the backend service
+      CUSTOM_MODELS: "-all,+gpt-3.5-turbo" # Enable only the gpt-3.5-turbo model, disable all others
+    depends_on:
+      - chatgpt # Ensure this service starts after the chatgpt service
+
+  # Define the backend service for ChatGPT
+  chatgpt:
+    image: pawanosman/chatgpt:latest # Use the specified Docker image for the backend
+    restart: always # Ensure the container restarts automatically if it stops
+    ports:
+      - "3040:3040" # Map port 3040 on the host to port 3040 in the container

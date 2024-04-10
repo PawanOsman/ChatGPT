@@ -1,0 +1,21 @@
+version: '3.8' # Specify Docker Compose file version
+
+services:
+  # Define the service for the web interface of ChatGPT
+  lobe-chat:
+    image: lobehub/lobe-chat:latest # Use the specified Docker image for the web interface
+    restart: always
+    ports:
+      - "3210:3210" # Map port 3210 on the host to port 3210 in the container
+    environment: # Set environment variables for the container
+      OPENAI_API_KEY: "anything" # Placeholder for the actual OpenAI API key
+      OPENAI_PROXY_URL: "http://chatgpt:3040/v1" # URL for the backend service
+    depends_on:
+      - chatgpt # Ensure this service starts after the chatgpt service
+
+  # Define the backend service for ChatGPT
+  chatgpt:
+    image: pawanosman/chatgpt:latest # Use the specified Docker image for the backend
+    restart: always # Ensure the container restarts automatically if it stops
+    ports:
+      - "3040:3040" # Map port 3040 on the host to port 3040 in the container
