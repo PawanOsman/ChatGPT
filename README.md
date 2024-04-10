@@ -1,6 +1,6 @@
-# ChatGPT API Free Reverse Proxy
+# ChatGPT `gpt-3.5-turbo` API for Free (as a Reverse Proxy)
 
-Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resource allowing seamless access to OpenAI's API. This project mirrors the official OpenAI API endpoints, enabling users to leverage OpenAI functionalities without direct cost. Dive into our documentation to discover how to set up your reverse proxy or connect with our hosted service for an even smoother experience.
+Welcome to the ChatGPT API Free Reverse Proxy, offering free self-hosted API access to ChatGPT (`gpt-3.5-turbo`) with OpenAI's familiar structure, so no code changes are needed.
 
 ## Quick Links
 
