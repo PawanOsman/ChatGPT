@@ -38,6 +38,8 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
    ```
    Note that the base URL is `http://localhost:3040/v1`.
 
+#### ✅ You can run third-party chat web interfaces, such as BetterChatGPT and LobeChat, with this API using Docker Compose. [Click here for the installation guide](./docker-compose).
+
 ### Your PC/Server
 
 To install and run the ChatGPT API Reverse Proxy on your PC/Server by following these steps:
