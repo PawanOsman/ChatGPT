@@ -11,7 +11,7 @@ Welcome to the ChatGPT API Free Reverse Proxy, offering free self-hosted API acc
 
 - [Features](#features)
 - Option 1: [Installing/Self-Hosting Guide](#installingself-hosting-guide) (Without using any API key)
-  - Method 1: [Using Docker](#using-docker) or [Install with chat web interfaces using docker-compose](./docker-compose)
+  - Method 1: [Using Docker](#using-docker) or [Run it with a Chat Web UI using docker-compose](./docker-compose)
   - Method 2: [Your PC/Server](#your-pcserver) (manually)
   - Method 3: [Termux on Android Phones](#termux-on-android-phones)
 - Option 2: [Accessing Our Hosted API](#accessing-our-hosted-api) (Free)
