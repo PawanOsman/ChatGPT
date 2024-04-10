@@ -11,7 +11,7 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
 
 - [Features](#features)
 - Option 1: [Installing/Self-Hosting Guide](#installingself-hosting-guide) (Without using any API key)
-  - Method 1: [Using Docker](#using-docker)
+  - Method 1: [Using Docker](#using-docker) or [Install with chat web interfaces using docker-compose](./docker-compose)
   - Method 2: [Your PC/Server](#your-pcserver) (manually)
   - Method 3: [Termux on Android Phones](#termux-on-android-phones)
 - Option 2: [Accessing Our Hosted API](#accessing-our-hosted-api) (Free)
@@ -38,7 +38,8 @@ Welcome to the **ChatGPT API Free Reverse Proxy** project, a complimentary resou
    ```
    Note that the base URL is `http://localhost:3040/v1`.
 
-#### ✅ You can run third-party chat web interfaces, such as BetterChatGPT and LobeChat, with this API using Docker Compose. [Click here for the installation guide](./docker-compose).
+### Install with chat web interfaces
+✅ You can run third-party chat web interfaces, such as BetterChatGPT and LobeChat, with this API using Docker Compose. [Click here for the installation guide](./docker-compose).
 
 ### Your PC/Server
 
