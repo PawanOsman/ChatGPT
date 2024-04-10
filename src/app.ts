@@ -276,7 +276,7 @@ async function handleChatCompletion(req: Request, res: Response) {
       JSON.stringify({
         status: false,
         error: {
-		  message: "An error happened, please make sure your request is SFW, or use a jailbreak to bypass the filter.",
+		  message: "An error occurred. Please check the server console to confirm it is ready and free of errors. Additionally, ensure that your request complies with OpenAI's policy.",
           type: "invalid_request_error",
         },
         support: "https://discord.pawan.krd",
