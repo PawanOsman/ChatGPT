@@ -299,7 +299,7 @@ app.use((req, res) =>
   res.status(404).send({
     status: false,
     error: {
-      message: `The requested endpoint was not found. please make sure to use "http://localhost:3040/v1" as the base URL.`,
+      message: `The requested endpoint (${req.method.toLocaleUpperCase()} ${req.path}) was not found. please make sure to use "http://localhost:3040/v1" as the base URL.`,
       type: "invalid_request_error",
     },
     support: "https://discord.pawan.krd",
