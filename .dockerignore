@@ -1,0 +1,6 @@
+docker-compose/
+.github/
+.gitignore
+start.bat
+Dockerfile
+.dockerignore
