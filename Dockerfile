@@ -14,4 +14,4 @@ RUN npm install
 EXPOSE 3040
 
 # Command to run the start script
-CMD ["bash", "start.sh"]
+CMD ["sh", "start.sh"]
