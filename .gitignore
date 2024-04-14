@@ -12,3 +12,4 @@ dist/
 .parcel-cache
 db.json
 .env
+cloudflared
