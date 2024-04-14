@@ -172,7 +172,7 @@ async function handleChatCompletion(req: Request, res: Response) {
 
 		let fullContent = "";
 		let requestId = GenerateCompletionId("chatcmpl-");
-		let created = Date.now();
+		let created = Math.floor(Date.now() / 1000); // Unix timestamp in seconds
 		let finish_reason = null;
 
 		for await (const message of StreamCompletion(response.data)) {
