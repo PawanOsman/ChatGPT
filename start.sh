@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ ! -d "node_modules" ]; then
     echo "Installing npm packages..."
