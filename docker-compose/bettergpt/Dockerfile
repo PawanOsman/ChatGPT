@@ -4,6 +4,9 @@ FROM node:19-alpine
 # Set the working directory
 WORKDIR /app
 
+# Install git
+RUN apk add --no-cache git
+
 # Clone the project repository
 RUN git clone https://github.com/ztjhz/BetterChatGPT.git /app
 
