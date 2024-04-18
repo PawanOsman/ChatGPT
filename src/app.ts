@@ -385,6 +385,11 @@ async function DownloadCloudflared(): Promise<string> {
 }
 
 async function StartCloudflaredTunnel(cloudflaredPath: string): Promise<string> {
+	if (!cloudflaredPath) {
+        console.error("Failed to download Cloudflared executable.");
+        return null;
+    }
+
 	const localUrl = `http://localhost:${port}`;
 	return new Promise<string>((resolve, reject) => {
 		cloudflared = spawn(cloudflaredPath, ["tunnel", "--url", localUrl]);
