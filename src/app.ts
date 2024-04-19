@@ -179,12 +179,19 @@ async function handleChatCompletion(req: Request, res: Response) {
 		let requestId = GenerateCompletionId("chatcmpl-");
 		let created = Math.floor(Date.now() / 1000); // Unix timestamp in seconds
 		let finish_reason = null;
+		let error: string;
 
 		for await (const message of StreamCompletion(response.data)) {
 			// Skip heartbeat detection
 			if (message.match(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{6}$/)) continue;
 
 			const parsed = JSON.parse(message);
+
+			if(parsed.error){
+				error = `Error message from OpenAI: ${parsed.error}`;
+				finish_reason = "stop";
+				break;
+			}
 
 			let content = parsed?.message?.content?.parts[0] ?? "";
 			let status = parsed?.message?.status ?? "";
@@ -254,7 +261,7 @@ async function handleChatCompletion(req: Request, res: Response) {
 					choices: [
 						{
 							delta: {
-								content: "",
+								content: error ?? "",
 							},
 							index: 0,
 							finish_reason: finish_reason,
@@ -274,7 +281,7 @@ async function handleChatCompletion(req: Request, res: Response) {
 							finish_reason: finish_reason,
 							index: 0,
 							message: {
-								content: fullContent,
+								content: error ?? fullContent,
 								role: "assistant",
 							},
 						},
