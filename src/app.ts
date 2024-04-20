@@ -391,9 +391,9 @@ async function handleChatCompletion(req: Request, res: Response) {
 
     res.end();
   } catch (error: any) {
-    console.log("Error:", error.response?.data ?? error.message);
+    // console.log("Error:", error.response?.data ?? error.message);
     if (!res.headersSent) res.setHeader("Content-Type", "application/json");
-    console.error("Error handling chat completion:", error);
+    // console.error("Error handling chat completion:", error);
     res.write(
       JSON.stringify({
         status: false,
