@@ -18,9 +18,13 @@ const baseUrl = "https://chat.openai.com";
 const apiUrl = `${baseUrl}/backend-anon/conversation`;
 const refreshInterval = 60000; // Interval to refresh token in ms
 const errorWait = 120000; // Wait time in ms after an error
+const newSessionRetries: number =
+  parseInt(process.env.NEW_SESSION_RETRIES) || 5; // Number of retries to get a new session
 const userAgent =
   process.env.USER_AGENT ||
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36";
+const authKey: string =
+  process.env.API_KEY || null;  // Authorized client apiKey
 
 let cloudflared: ChildProcessWithoutNullStreams;
 
@@ -162,7 +166,7 @@ function GenerateProofToken(
 }
 
 // Function to get a new session ID and token from the OpenAI API
-async function getNewSession(): Promise<Session> {
+async function getNewSession(retries: number = 0): Promise<Session> {
   let newDeviceId = randomUUID();
   try {
     const response = await axiosInstance.post(
@@ -178,7 +182,8 @@ async function getNewSession(): Promise<Session> {
 
     return session;
   } catch (error) {
-    return null;
+    await wait(500);
+    return retries < newSessionRetries ? getNewSession(retries + 1) : null;
   }
 }
 
@@ -195,6 +200,32 @@ function enableCORS(req: Request, res: Response, next: NextFunction) {
 
 // Middleware to handle chat completions
 async function handleChatCompletion(req: Request, res: Response) {
+  // If .env sets API_KEY and is not empty, the apiKey of req.headers will be verified.
+  if (authKey) {
+    const clientApiKey = req.headers.authorization?.split(' ')[1] ?? "null";
+    if (!clientApiKey || clientApiKey != authKey) {
+      console.log(
+        "Request:",
+        `${req.method} ${req.originalUrl}`,
+        `${req.body?.messages?.length ?? 0} messages`,
+        `ClientKey: ${clientApiKey} Verify Failed!`
+      );
+
+      res.write(
+        JSON.stringify({
+          status: false,
+          error: {
+            message: `Incorrect API key provided: ${clientApiKey}, Authorized access only!`,
+            type: "invalid_request_error",
+            code: "invalid_api_key"
+          },
+          support: "https://discord.pawan.krd",
+        })
+      );
+      return res.end();
+    }
+  }
+
   console.log(
     "Request:",
     `${req.method} ${req.originalUrl}`,
@@ -216,7 +247,7 @@ async function handleChatCompletion(req: Request, res: Response) {
         })
       );
 
-      res.end();
+      return res.end();
     }
 
     let proofToken = GenerateProofToken(
@@ -399,7 +430,7 @@ async function handleChatCompletion(req: Request, res: Response) {
         status: false,
         error: {
           message:
-            "An error occurred. Please check the server console to confirm it is ready and free of errors. Additionally, ensure that your request complies with OpenAI's policy.",
+            "An error occurred. please try again. Additionally, ensure that your request complies with OpenAI's policy.",
           type: "invalid_request_error",
         },
         support: "https://discord.pawan.krd",
