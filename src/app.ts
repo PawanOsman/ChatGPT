@@ -23,6 +23,8 @@ const newSessionRetries: number =
 const userAgent =
   process.env.USER_AGENT ||
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36";
+const authKey: string =
+  process.env.API_KEY || null;  // Authorized client apiKey
 
 let cloudflared: ChildProcessWithoutNullStreams;
 
@@ -198,6 +200,32 @@ function enableCORS(req: Request, res: Response, next: NextFunction) {
 
 // Middleware to handle chat completions
 async function handleChatCompletion(req: Request, res: Response) {
+  // If .env sets API_KEY and is not empty, the apiKey of req.headers will be verified.
+  if (authKey) {
+    const clientApiKey = req.headers.authorization?.split(' ')[1] ?? "null";
+    if (!clientApiKey || clientApiKey != authKey) {
+      console.log(
+        "Request:",
+        `${req.method} ${req.originalUrl}`,
+        `${req.body?.messages?.length ?? 0} messages`,
+        `ClientKey: ${clientApiKey} Verify Failed!`
+      );
+
+      res.write(
+        JSON.stringify({
+          status: false,
+          error: {
+            message: `Incorrect API key provided: ${clientApiKey}, Authorized access only!`,
+            type: "invalid_request_error",
+            code: "invalid_api_key"
+          },
+          support: "https://discord.pawan.krd",
+        })
+      );
+      return res.end();
+    }
+  }
+
   console.log(
     "Request:",
     `${req.method} ${req.originalUrl}`,
