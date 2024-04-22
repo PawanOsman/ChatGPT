@@ -236,11 +236,14 @@ async function handleChatCompletion(req: Request, res: Response) {
     let session = await getNewSession();
 
     if (!session) {
+      console.error("Error getting a new session...");
+      console.error("If this error persists, your country may not be supported yet.");
+      console.error("If your country was the issue, please consider using a U.S. VPN or a U.S. residential proxy.");
       res.write(
         JSON.stringify({
           status: false,
           error: {
-            message: `Error getting a new session, please try again later, if the issue persists, please open an issue on the GitHub repository, https://github.com/PawanOsman/ChatGPT`,
+            message: `Error getting a new session, If this error persists, your country may not be supported yet. If your country was the issue, please consider using a U.S. VPN or a U.S. residential proxy.`,
             type: "invalid_request_error",
           },
           support: "https://discord.pawan.krd",
@@ -596,23 +599,4 @@ app.listen(port, async () => {
   console.log(
     `💖 Don't forget to star the repository if you like this project!`
   );
-  console.log();
-
-  setTimeout(async () => {
-    while (true) {
-      try {
-        await getNewSession();
-        await wait(refreshInterval);
-      } catch (error) {
-        console.error("Error refreshing session ID, retrying in 2 minute...");
-        console.error(
-          "If this error persists, your country may not be supported yet."
-        );
-        console.error(
-          "If your country was the issue, please consider using a U.S. VPN."
-        );
-        await wait(errorWait);
-      }
-    }
-  }, 0);
 });
