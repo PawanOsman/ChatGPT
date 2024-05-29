@@ -13,3 +13,4 @@ dist/
 db.json
 .env
 cloudflared
+cloudflared.exe
