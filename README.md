@@ -1,3 +1,6 @@
+# This project’s a bit outdated and isn’t working right now. We’ll update it, but we’re tied up with another project at the moment. In the meantime, you’re welcome to use [our hosted models for free](#accessing-our-hosted-api).
+
+
 ## ChatGPT `gpt-3.5-turbo` API for Free (as a Reverse Proxy)
 
 Welcome to the ChatGPT API Free Reverse Proxy, offering free self-hosted API access to ChatGPT (`gpt-3.5-turbo`) with OpenAI's familiar structure, so no code changes are needed.
