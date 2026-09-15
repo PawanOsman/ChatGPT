@@ -4,6 +4,12 @@ All notable changes to the "ocursor" extension will be documented in this file.
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [Unreleased]
+
+### Added
+
+- Optional You.com provider for the `WebSearch` tool: when `YDC_API_KEY` is set, searches go through the You.com Search API (stable JSON results with snippets) instead of the DuckDuckGo HTML scrape, and fall back to DuckDuckGo automatically if the API call fails. With no key set, behaviour is unchanged. Get a key at <https://you.com/platform/api-keys>.
+
 ## [0.1.4] - 2026-09-11
 
 ### Added

@@ -45,7 +45,7 @@ Ask questions in plain language — *"where do we refresh the auth token?"* — 
 | | |
 |---|---|
 | 💬 **Agent chat** | Multi-tab sidebar chat with @-mentions: files, folders, code, `@Docs`, git commits, branch diffs, terminals, rules, past chats |
-| 🛠️ **25 tools** | Read/write/edit, shell, grep/glob, semantic search, web search & fetch, notebooks, todos, subagents, MCP |
+| 🛠️ **25 tools** | Read/write/edit, shell, grep/glob, semantic search, web search & fetch (optional You.com provider via `YDC_API_KEY`, falls back to DuckDuckGo), notebooks, todos, subagents, MCP |
 | ✅ **Inline review** | Per-hunk **Keep / Undo** CodeLenses on every agent edit — no git required |
 | 🧭 **Modes** | Agent · Ask · Plan · Debug · Multitask (Ask/Plan are read-only) |
 | 🛡️ **Approval policy** | Per-action allow/ask/review/deny with risk heuristics (`rm -rf`, `sudo`, `.env`, secrets…) and wildcard allow/deny lists |
